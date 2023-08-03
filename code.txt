@@ -1,0 +1,72 @@
+## Unix Shell
+
+# Navigating files and directories
+$ ls # show all files and directories within given directory
+$ ls -F # classify: append indicator (one of */=>@) to entries
+$ ls -a # show everything
+$ ls -s # sort files and directories by size
+$ ls -R # list all nested subdirectories
+$ pwd # show current working directory
+$ ls --help # getting help
+$ man ls # open pop-up manual
+$ cd ~/Desktop # change current directory to Desk
+$ cd .. # move up one directory level
+$ cd - # move down one directory level
+# use tab completion smartly to save time
+
+# Working with files and directories
+$ mkdir planets # create new directory
+$ mkdir -p ../projects/data ../project/results # -p: create directory with nested subdirectories
+$ nano mars.txt # create new text file with pop-up text editor
+$ cat mars.txt # print text file
+$ touch my_file.txt # create new text file without pop-up text editor
+$ rm my_file.text # remove file
+$ rmdir planets # remove directories
+$ mv thesis/draft.txt thesis/quotes,txt # moving files, same as renaming
+$ cp quotes.txt thesis/quotations.txt
+
+
+
+## Git
+
+# Setting up Git
+# (just copy and paste the codes here - the meaning behind is not that important)
+$ git config --global user.name "Chris Wong"
+$ git config --global user.email "chris.wong@yahoo.com.hk"
+$ git config --glboal core.autocrlf input
+$ git config --global core.editor "nano -w"
+$ git config --global init.defaultBranch main
+
+# Checking Git settings
+$ git config --global --edit # pop-up editable interface
+$ git config --list # print list of settings
+
+# Create repository and tracking changes
+$ git init 
+$ git status
+$ git add mars.txt # add mars.txt to git
+$ git commit -m "Start notes on Mars as a base" # store changes with a short message
+$ git log (--oneline) # showing all changes, --oneline: limit details to one line only)
+
+# History
+$ git diff # compare differences between current version and immediate previous version
+$ git diff --staged # show uncomitted changes
+$ git diff HEAD~3 mars.txt # compare with 3 versions before 
+$ git diff f22b25e3 mars.txt # compare using unique ID
+$ git checkout HEAD mars.txt # restore to previous version
+
+# Remote in GitHub
+# Create a repository on GitHub (e.g. planets)
+# Get SSH link from GitHub repository
+$ git remote add origin git@github.com:wchris/planets/git
+$ git remote -v # check whether command is working
+
+# Create an SSH key pair
+$ ssh-keygen -t ed25519 -C "chris.wong@yahoo.com.hk"
+$ cat ~/.ssh/id_ed25519.pub # copy public key
+$ ssh -T git@github.com $ copy public key to GitHub
+
+# Push to and pull from GitHub
+$ git push origin main # push files to GitHub
+$ git pull origin main # pull files from GitHub
+
